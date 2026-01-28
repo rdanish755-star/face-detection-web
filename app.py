@@ -1,4 +1,4 @@
-mport streamlit as st
+import streamlit as st
 from streamlit_webrtc import webrtc_streamer
 import cv2
 import numpy as np
@@ -17,5 +17,6 @@ def transform(frame):
         cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
         
     return img
+
 
 webrtc_streamer(key="example", video_frame_callback=transform)
