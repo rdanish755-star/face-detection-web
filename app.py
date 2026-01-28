@@ -5,8 +5,10 @@ import numpy as np
 
 st.title("AI Face Detection Web App")
 
-# Load the XML model
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+import os
+base_path = os.path.dirname(_file_)
+xml_path = os.path.join(base_path, 'haarcascade_frontalface_default.xml')
+face_cascade = cv2.CascadeClassifier(xml_path)
 
 def transform(frame):
     img = frame.to_ndarray(format="bgr24")
@@ -20,3 +22,4 @@ def transform(frame):
 
 
 webrtc_streamer(key="example", video_frame_callback=transform)
+
