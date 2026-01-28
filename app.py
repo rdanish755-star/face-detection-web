@@ -2,10 +2,11 @@ import streamlit as st
 from streamlit_webrtc import webrtc_streamer
 import cv2
 import numpy as np
+import os
 
 st.title("AI Face Detection Web App")
 
-import os
+
 base_path = os.path.dirname(_file_)
 xml_path = os.path.join(base_path, 'haarcascade_frontalface_default.xml')
 face_cascade = cv2.CascadeClassifier(xml_path)
@@ -22,4 +23,5 @@ def transform(frame):
 
 
 webrtc_streamer(key="example", video_frame_callback=transform)
+
 
