@@ -7,7 +7,7 @@ import os
 st.title("AI Face Detection Web App")
 
 
-base_path = os.path.dirname(_file_)
+base_path = os.getcwd()
 xml_path = os.path.join(base_path, 'haarcascade_frontalface_default.xml')
 face_cascade = cv2.CascadeClassifier(xml_path)
 
@@ -23,5 +23,6 @@ def transform(frame):
 
 
 webrtc_streamer(key="example", video_frame_callback=transform)
+
 
 
